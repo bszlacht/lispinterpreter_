@@ -8,7 +8,6 @@ if __name__ == '__main__':
     while 1:
         _input = input("LISP>")
         _input = Scanner.scan(_input)
-        print(_input)
         result = Parser.parse(_input, env)
         if result is not None:
             print(result)
