@@ -56,7 +56,13 @@ class Scanner(object):
         return t
 
     def t_error(self, t):
-        print(f"Illegal character '{t.value[0]}' in line {t.lexer.lineno}")
+        print(f"Illegal character '{t.value[0]}'")
         t.lexer.skip(1)
+
+    def error_handler(self, token):
+        last_cr = self.lexer.lexdata.rfind('\n', 0, token.lexpos)
+        if last_cr < 0:
+            last_cr = 0
+        return token.lexpos - last_cr
 
     t_ignore = ' \t\f'

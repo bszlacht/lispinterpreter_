@@ -20,4 +20,3 @@ LISP: (a)
 [1, 2]
 LISP: (append a list ( 3 4))
 [1, 2, 3, 4]
-LISP:

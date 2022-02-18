@@ -164,4 +164,8 @@ class Parser(object):
             p[0] = p[2]
 
     def p_error(self, p):
-        print("Syntax error in input!")
+        if p:
+            print(
+                "Syntax error at column {0}: LexToken({1}, '{2}')".format(self.scanner.error_handler(p), p.type, p.value))
+        else:
+            print('ERROR p_error')

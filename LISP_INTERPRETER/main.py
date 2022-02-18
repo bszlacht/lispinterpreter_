@@ -3,7 +3,6 @@ import ply.yacc as yacc
 from Interpreter import Interpreter
 
 if __name__ == '__main__':
-    # todo kolumn error
     parser = Parser()
     pars = yacc.yacc(module=parser)
     interpret = Interpreter()
