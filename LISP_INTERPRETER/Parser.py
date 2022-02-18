@@ -18,11 +18,11 @@ class Parser(object):
 
     def p_arithmetical_operators(self, p):
         '''
-        expression  : '+' factor expression
-                    | '-' factor expression
-                    | '*' factor expression
-                    | '/' factor expression
-                    | POW factor expression
+        expression  : '+' factor factor
+                    | '-' factor factor
+                    | '*' factor factor
+                    | '/' factor factor
+                    | POW factor factor
         '''
         p[0] = ast.ArithmeticExpression(p[1], p[2], p[3])
 

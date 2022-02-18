@@ -4,11 +4,11 @@ Grammar
 
 Rule 0     S' -> S
 Rule 1     S -> ( expression )
-Rule 2     expression -> + factor expression
-Rule 3     expression -> - factor expression
-Rule 4     expression -> * factor expression
-Rule 5     expression -> / factor expression
-Rule 6     expression -> POW factor expression
+Rule 2     expression -> + factor factor
+Rule 3     expression -> - factor factor
+Rule 4     expression -> * factor factor
+Rule 5     expression -> / factor factor
+Rule 6     expression -> POW factor factor
 Rule 7     expression -> < factor factor
 Rule 8     expression -> > factor factor
 Rule 9     expression -> EQ factor factor
@@ -88,8 +88,8 @@ error                :
 Nonterminals, with rules where they appear
 
 S                    : 0
-expression           : 1 2 3 4 5 6 20 21 21 21 27 44
-factor               : 2 3 4 5 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 17 18 19 28 37 38
+expression           : 1 20 21 21 21 27 44
+factor               : 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 17 18 19 28 37 38
 fun_body             : 23
 list_prod            : 22 24 26 36 38
 listy                : 29 30 31 32 33 34 34
@@ -116,11 +116,11 @@ state 1
 state 2
 
     (1) S -> ( . expression )
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
@@ -192,11 +192,11 @@ state 2
 state 3
 
     (44) factor -> ( . expression )
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
@@ -274,7 +274,7 @@ state 4
 
 state 5
 
-    (2) expression -> + . factor expression
+    (2) expression -> + . factor factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -299,7 +299,7 @@ state 6
 
 state 7
 
-    (3) expression -> - . factor expression
+    (3) expression -> - . factor factor
     (42) factor -> - . INTEGER
     (43) factor -> - . FLOAT
     (39) factor -> . ID
@@ -319,7 +319,7 @@ state 7
 
 state 8
 
-    (4) expression -> * . factor expression
+    (4) expression -> * . factor factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -337,7 +337,7 @@ state 8
 
 state 9
 
-    (5) expression -> / . factor expression
+    (5) expression -> / . factor factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -355,7 +355,7 @@ state 9
 
 state 10
 
-    (6) expression -> POW . factor expression
+    (6) expression -> POW . factor factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -713,37 +713,10 @@ state 35
     (40) factor -> INTEGER .
 
     )               reduce using rule 40 (factor -> INTEGER .)
-    +               reduce using rule 40 (factor -> INTEGER .)
-    -               reduce using rule 40 (factor -> INTEGER .)
-    *               reduce using rule 40 (factor -> INTEGER .)
-    /               reduce using rule 40 (factor -> INTEGER .)
-    POW             reduce using rule 40 (factor -> INTEGER .)
-    <               reduce using rule 40 (factor -> INTEGER .)
-    >               reduce using rule 40 (factor -> INTEGER .)
-    EQ              reduce using rule 40 (factor -> INTEGER .)
-    NEQ             reduce using rule 40 (factor -> INTEGER .)
-    LE              reduce using rule 40 (factor -> INTEGER .)
-    GE              reduce using rule 40 (factor -> INTEGER .)
-    ISEQ            reduce using rule 40 (factor -> INTEGER .)
-    AND             reduce using rule 40 (factor -> INTEGER .)
-    OR              reduce using rule 40 (factor -> INTEGER .)
-    ABS             reduce using rule 40 (factor -> INTEGER .)
-    ROUND           reduce using rule 40 (factor -> INTEGER .)
-    ISNUMBER        reduce using rule 40 (factor -> INTEGER .)
-    NOT             reduce using rule 40 (factor -> INTEGER .)
-    DEF             reduce using rule 40 (factor -> INTEGER .)
-    IF              reduce using rule 40 (factor -> INTEGER .)
-    LIST            reduce using rule 40 (factor -> INTEGER .)
-    DEFUN           reduce using rule 40 (factor -> INTEGER .)
     ID              reduce using rule 40 (factor -> INTEGER .)
-    MIN             reduce using rule 40 (factor -> INTEGER .)
-    MAX             reduce using rule 40 (factor -> INTEGER .)
-    CAR             reduce using rule 40 (factor -> INTEGER .)
-    CDR             reduce using rule 40 (factor -> INTEGER .)
-    LEN             reduce using rule 40 (factor -> INTEGER .)
-    APPEND          reduce using rule 40 (factor -> INTEGER .)
     INTEGER         reduce using rule 40 (factor -> INTEGER .)
     FLOAT           reduce using rule 40 (factor -> INTEGER .)
+    -               reduce using rule 40 (factor -> INTEGER .)
     (               reduce using rule 40 (factor -> INTEGER .)
 
 
@@ -752,37 +725,10 @@ state 36
     (41) factor -> FLOAT .
 
     )               reduce using rule 41 (factor -> FLOAT .)
-    +               reduce using rule 41 (factor -> FLOAT .)
-    -               reduce using rule 41 (factor -> FLOAT .)
-    *               reduce using rule 41 (factor -> FLOAT .)
-    /               reduce using rule 41 (factor -> FLOAT .)
-    POW             reduce using rule 41 (factor -> FLOAT .)
-    <               reduce using rule 41 (factor -> FLOAT .)
-    >               reduce using rule 41 (factor -> FLOAT .)
-    EQ              reduce using rule 41 (factor -> FLOAT .)
-    NEQ             reduce using rule 41 (factor -> FLOAT .)
-    LE              reduce using rule 41 (factor -> FLOAT .)
-    GE              reduce using rule 41 (factor -> FLOAT .)
-    ISEQ            reduce using rule 41 (factor -> FLOAT .)
-    AND             reduce using rule 41 (factor -> FLOAT .)
-    OR              reduce using rule 41 (factor -> FLOAT .)
-    ABS             reduce using rule 41 (factor -> FLOAT .)
-    ROUND           reduce using rule 41 (factor -> FLOAT .)
-    ISNUMBER        reduce using rule 41 (factor -> FLOAT .)
-    NOT             reduce using rule 41 (factor -> FLOAT .)
-    DEF             reduce using rule 41 (factor -> FLOAT .)
-    IF              reduce using rule 41 (factor -> FLOAT .)
-    LIST            reduce using rule 41 (factor -> FLOAT .)
-    DEFUN           reduce using rule 41 (factor -> FLOAT .)
     ID              reduce using rule 41 (factor -> FLOAT .)
-    MIN             reduce using rule 41 (factor -> FLOAT .)
-    MAX             reduce using rule 41 (factor -> FLOAT .)
-    CAR             reduce using rule 41 (factor -> FLOAT .)
-    CDR             reduce using rule 41 (factor -> FLOAT .)
-    LEN             reduce using rule 41 (factor -> FLOAT .)
-    APPEND          reduce using rule 41 (factor -> FLOAT .)
     INTEGER         reduce using rule 41 (factor -> FLOAT .)
     FLOAT           reduce using rule 41 (factor -> FLOAT .)
+    -               reduce using rule 41 (factor -> FLOAT .)
     (               reduce using rule 41 (factor -> FLOAT .)
 
 
@@ -802,37 +748,7 @@ state 38
 
 state 39
 
-    (2) expression -> + factor . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
-    (7) expression -> . < factor factor
-    (8) expression -> . > factor factor
-    (9) expression -> . EQ factor factor
-    (10) expression -> . NEQ factor factor
-    (11) expression -> . LE factor factor
-    (12) expression -> . GE factor factor
-    (13) expression -> . ISEQ factor factor
-    (14) expression -> . AND factor factor
-    (15) expression -> . OR factor factor
-    (16) expression -> . ABS factor
-    (17) expression -> . ROUND factor
-    (18) expression -> . ISNUMBER factor
-    (19) expression -> . NOT factor
-    (20) expression -> . DEF ID expression
-    (21) expression -> . IF ( expression ) ( expression ) ( expression )
-    (22) expression -> . LIST ( list_prod )
-    (23) expression -> . DEFUN ( name ) ( variables ) ( fun_body )
-    (24) expression -> . ID ( list_prod )
-    (28) expression -> . factor
-    (29) expression -> . MIN listy
-    (30) expression -> . MAX listy
-    (31) expression -> . CAR listy
-    (32) expression -> . CDR listy
-    (33) expression -> . LEN listy
-    (34) expression -> . APPEND listy listy
+    (2) expression -> + factor . factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -840,77 +756,22 @@ state 39
     (43) factor -> . - FLOAT
     (44) factor -> . ( expression )
 
-    +               shift and go to state 5
-    -               shift and go to state 7
-    *               shift and go to state 8
-    /               shift and go to state 9
-    POW             shift and go to state 10
-    <               shift and go to state 11
-    >               shift and go to state 12
-    EQ              shift and go to state 13
-    NEQ             shift and go to state 14
-    LE              shift and go to state 15
-    GE              shift and go to state 16
-    ISEQ            shift and go to state 17
-    AND             shift and go to state 18
-    OR              shift and go to state 19
-    ABS             shift and go to state 20
-    ROUND           shift and go to state 21
-    ISNUMBER        shift and go to state 22
-    NOT             shift and go to state 23
-    DEF             shift and go to state 24
-    IF              shift and go to state 26
-    LIST            shift and go to state 27
-    DEFUN           shift and go to state 28
-    ID              shift and go to state 25
-    MIN             shift and go to state 29
-    MAX             shift and go to state 30
-    CAR             shift and go to state 31
-    CDR             shift and go to state 32
-    LEN             shift and go to state 33
-    APPEND          shift and go to state 34
+    ID              shift and go to state 40
     INTEGER         shift and go to state 35
     FLOAT           shift and go to state 36
+    -               shift and go to state 41
     (               shift and go to state 3
 
-    factor                         shift and go to state 6
-    expression                     shift and go to state 75
+    factor                         shift and go to state 75
 
 state 40
 
     (39) factor -> ID .
 
-    +               reduce using rule 39 (factor -> ID .)
-    -               reduce using rule 39 (factor -> ID .)
-    *               reduce using rule 39 (factor -> ID .)
-    /               reduce using rule 39 (factor -> ID .)
-    POW             reduce using rule 39 (factor -> ID .)
-    <               reduce using rule 39 (factor -> ID .)
-    >               reduce using rule 39 (factor -> ID .)
-    EQ              reduce using rule 39 (factor -> ID .)
-    NEQ             reduce using rule 39 (factor -> ID .)
-    LE              reduce using rule 39 (factor -> ID .)
-    GE              reduce using rule 39 (factor -> ID .)
-    ISEQ            reduce using rule 39 (factor -> ID .)
-    AND             reduce using rule 39 (factor -> ID .)
-    OR              reduce using rule 39 (factor -> ID .)
-    ABS             reduce using rule 39 (factor -> ID .)
-    ROUND           reduce using rule 39 (factor -> ID .)
-    ISNUMBER        reduce using rule 39 (factor -> ID .)
-    NOT             reduce using rule 39 (factor -> ID .)
-    DEF             reduce using rule 39 (factor -> ID .)
-    IF              reduce using rule 39 (factor -> ID .)
-    LIST            reduce using rule 39 (factor -> ID .)
-    DEFUN           reduce using rule 39 (factor -> ID .)
     ID              reduce using rule 39 (factor -> ID .)
-    MIN             reduce using rule 39 (factor -> ID .)
-    MAX             reduce using rule 39 (factor -> ID .)
-    CAR             reduce using rule 39 (factor -> ID .)
-    CDR             reduce using rule 39 (factor -> ID .)
-    LEN             reduce using rule 39 (factor -> ID .)
-    APPEND          reduce using rule 39 (factor -> ID .)
     INTEGER         reduce using rule 39 (factor -> ID .)
     FLOAT           reduce using rule 39 (factor -> ID .)
+    -               reduce using rule 39 (factor -> ID .)
     (               reduce using rule 39 (factor -> ID .)
     )               reduce using rule 39 (factor -> ID .)
 
@@ -926,37 +787,7 @@ state 41
 
 state 42
 
-    (3) expression -> - factor . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
-    (7) expression -> . < factor factor
-    (8) expression -> . > factor factor
-    (9) expression -> . EQ factor factor
-    (10) expression -> . NEQ factor factor
-    (11) expression -> . LE factor factor
-    (12) expression -> . GE factor factor
-    (13) expression -> . ISEQ factor factor
-    (14) expression -> . AND factor factor
-    (15) expression -> . OR factor factor
-    (16) expression -> . ABS factor
-    (17) expression -> . ROUND factor
-    (18) expression -> . ISNUMBER factor
-    (19) expression -> . NOT factor
-    (20) expression -> . DEF ID expression
-    (21) expression -> . IF ( expression ) ( expression ) ( expression )
-    (22) expression -> . LIST ( list_prod )
-    (23) expression -> . DEFUN ( name ) ( variables ) ( fun_body )
-    (24) expression -> . ID ( list_prod )
-    (28) expression -> . factor
-    (29) expression -> . MIN listy
-    (30) expression -> . MAX listy
-    (31) expression -> . CAR listy
-    (32) expression -> . CDR listy
-    (33) expression -> . LEN listy
-    (34) expression -> . APPEND listy listy
+    (3) expression -> - factor . factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -964,41 +795,13 @@ state 42
     (43) factor -> . - FLOAT
     (44) factor -> . ( expression )
 
-    +               shift and go to state 5
-    -               shift and go to state 7
-    *               shift and go to state 8
-    /               shift and go to state 9
-    POW             shift and go to state 10
-    <               shift and go to state 11
-    >               shift and go to state 12
-    EQ              shift and go to state 13
-    NEQ             shift and go to state 14
-    LE              shift and go to state 15
-    GE              shift and go to state 16
-    ISEQ            shift and go to state 17
-    AND             shift and go to state 18
-    OR              shift and go to state 19
-    ABS             shift and go to state 20
-    ROUND           shift and go to state 21
-    ISNUMBER        shift and go to state 22
-    NOT             shift and go to state 23
-    DEF             shift and go to state 24
-    IF              shift and go to state 26
-    LIST            shift and go to state 27
-    DEFUN           shift and go to state 28
-    ID              shift and go to state 25
-    MIN             shift and go to state 29
-    MAX             shift and go to state 30
-    CAR             shift and go to state 31
-    CDR             shift and go to state 32
-    LEN             shift and go to state 33
-    APPEND          shift and go to state 34
+    ID              shift and go to state 40
     INTEGER         shift and go to state 35
     FLOAT           shift and go to state 36
+    -               shift and go to state 41
     (               shift and go to state 3
 
-    factor                         shift and go to state 6
-    expression                     shift and go to state 78
+    factor                         shift and go to state 78
 
 state 43
 
@@ -1006,37 +809,10 @@ state 43
     (40) factor -> INTEGER .
 
     )               reduce using rule 42 (factor -> - INTEGER .)
-    +               reduce using rule 40 (factor -> INTEGER .)
-    -               reduce using rule 40 (factor -> INTEGER .)
-    *               reduce using rule 40 (factor -> INTEGER .)
-    /               reduce using rule 40 (factor -> INTEGER .)
-    POW             reduce using rule 40 (factor -> INTEGER .)
-    <               reduce using rule 40 (factor -> INTEGER .)
-    >               reduce using rule 40 (factor -> INTEGER .)
-    EQ              reduce using rule 40 (factor -> INTEGER .)
-    NEQ             reduce using rule 40 (factor -> INTEGER .)
-    LE              reduce using rule 40 (factor -> INTEGER .)
-    GE              reduce using rule 40 (factor -> INTEGER .)
-    ISEQ            reduce using rule 40 (factor -> INTEGER .)
-    AND             reduce using rule 40 (factor -> INTEGER .)
-    OR              reduce using rule 40 (factor -> INTEGER .)
-    ABS             reduce using rule 40 (factor -> INTEGER .)
-    ROUND           reduce using rule 40 (factor -> INTEGER .)
-    ISNUMBER        reduce using rule 40 (factor -> INTEGER .)
-    NOT             reduce using rule 40 (factor -> INTEGER .)
-    DEF             reduce using rule 40 (factor -> INTEGER .)
-    IF              reduce using rule 40 (factor -> INTEGER .)
-    LIST            reduce using rule 40 (factor -> INTEGER .)
-    DEFUN           reduce using rule 40 (factor -> INTEGER .)
     ID              reduce using rule 40 (factor -> INTEGER .)
-    MIN             reduce using rule 40 (factor -> INTEGER .)
-    MAX             reduce using rule 40 (factor -> INTEGER .)
-    CAR             reduce using rule 40 (factor -> INTEGER .)
-    CDR             reduce using rule 40 (factor -> INTEGER .)
-    LEN             reduce using rule 40 (factor -> INTEGER .)
-    APPEND          reduce using rule 40 (factor -> INTEGER .)
     INTEGER         reduce using rule 40 (factor -> INTEGER .)
     FLOAT           reduce using rule 40 (factor -> INTEGER .)
+    -               reduce using rule 40 (factor -> INTEGER .)
     (               reduce using rule 40 (factor -> INTEGER .)
 
 
@@ -1046,73 +822,16 @@ state 44
     (41) factor -> FLOAT .
 
     )               reduce using rule 43 (factor -> - FLOAT .)
-    +               reduce using rule 41 (factor -> FLOAT .)
-    -               reduce using rule 41 (factor -> FLOAT .)
-    *               reduce using rule 41 (factor -> FLOAT .)
-    /               reduce using rule 41 (factor -> FLOAT .)
-    POW             reduce using rule 41 (factor -> FLOAT .)
-    <               reduce using rule 41 (factor -> FLOAT .)
-    >               reduce using rule 41 (factor -> FLOAT .)
-    EQ              reduce using rule 41 (factor -> FLOAT .)
-    NEQ             reduce using rule 41 (factor -> FLOAT .)
-    LE              reduce using rule 41 (factor -> FLOAT .)
-    GE              reduce using rule 41 (factor -> FLOAT .)
-    ISEQ            reduce using rule 41 (factor -> FLOAT .)
-    AND             reduce using rule 41 (factor -> FLOAT .)
-    OR              reduce using rule 41 (factor -> FLOAT .)
-    ABS             reduce using rule 41 (factor -> FLOAT .)
-    ROUND           reduce using rule 41 (factor -> FLOAT .)
-    ISNUMBER        reduce using rule 41 (factor -> FLOAT .)
-    NOT             reduce using rule 41 (factor -> FLOAT .)
-    DEF             reduce using rule 41 (factor -> FLOAT .)
-    IF              reduce using rule 41 (factor -> FLOAT .)
-    LIST            reduce using rule 41 (factor -> FLOAT .)
-    DEFUN           reduce using rule 41 (factor -> FLOAT .)
     ID              reduce using rule 41 (factor -> FLOAT .)
-    MIN             reduce using rule 41 (factor -> FLOAT .)
-    MAX             reduce using rule 41 (factor -> FLOAT .)
-    CAR             reduce using rule 41 (factor -> FLOAT .)
-    CDR             reduce using rule 41 (factor -> FLOAT .)
-    LEN             reduce using rule 41 (factor -> FLOAT .)
-    APPEND          reduce using rule 41 (factor -> FLOAT .)
     INTEGER         reduce using rule 41 (factor -> FLOAT .)
     FLOAT           reduce using rule 41 (factor -> FLOAT .)
+    -               reduce using rule 41 (factor -> FLOAT .)
     (               reduce using rule 41 (factor -> FLOAT .)
 
 
 state 45
 
-    (4) expression -> * factor . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
-    (7) expression -> . < factor factor
-    (8) expression -> . > factor factor
-    (9) expression -> . EQ factor factor
-    (10) expression -> . NEQ factor factor
-    (11) expression -> . LE factor factor
-    (12) expression -> . GE factor factor
-    (13) expression -> . ISEQ factor factor
-    (14) expression -> . AND factor factor
-    (15) expression -> . OR factor factor
-    (16) expression -> . ABS factor
-    (17) expression -> . ROUND factor
-    (18) expression -> . ISNUMBER factor
-    (19) expression -> . NOT factor
-    (20) expression -> . DEF ID expression
-    (21) expression -> . IF ( expression ) ( expression ) ( expression )
-    (22) expression -> . LIST ( list_prod )
-    (23) expression -> . DEFUN ( name ) ( variables ) ( fun_body )
-    (24) expression -> . ID ( list_prod )
-    (28) expression -> . factor
-    (29) expression -> . MIN listy
-    (30) expression -> . MAX listy
-    (31) expression -> . CAR listy
-    (32) expression -> . CDR listy
-    (33) expression -> . LEN listy
-    (34) expression -> . APPEND listy listy
+    (4) expression -> * factor . factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -1120,75 +839,17 @@ state 45
     (43) factor -> . - FLOAT
     (44) factor -> . ( expression )
 
-    +               shift and go to state 5
-    -               shift and go to state 7
-    *               shift and go to state 8
-    /               shift and go to state 9
-    POW             shift and go to state 10
-    <               shift and go to state 11
-    >               shift and go to state 12
-    EQ              shift and go to state 13
-    NEQ             shift and go to state 14
-    LE              shift and go to state 15
-    GE              shift and go to state 16
-    ISEQ            shift and go to state 17
-    AND             shift and go to state 18
-    OR              shift and go to state 19
-    ABS             shift and go to state 20
-    ROUND           shift and go to state 21
-    ISNUMBER        shift and go to state 22
-    NOT             shift and go to state 23
-    DEF             shift and go to state 24
-    IF              shift and go to state 26
-    LIST            shift and go to state 27
-    DEFUN           shift and go to state 28
-    ID              shift and go to state 25
-    MIN             shift and go to state 29
-    MAX             shift and go to state 30
-    CAR             shift and go to state 31
-    CDR             shift and go to state 32
-    LEN             shift and go to state 33
-    APPEND          shift and go to state 34
+    ID              shift and go to state 40
     INTEGER         shift and go to state 35
     FLOAT           shift and go to state 36
+    -               shift and go to state 41
     (               shift and go to state 3
 
-    factor                         shift and go to state 6
-    expression                     shift and go to state 79
+    factor                         shift and go to state 79
 
 state 46
 
-    (5) expression -> / factor . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
-    (7) expression -> . < factor factor
-    (8) expression -> . > factor factor
-    (9) expression -> . EQ factor factor
-    (10) expression -> . NEQ factor factor
-    (11) expression -> . LE factor factor
-    (12) expression -> . GE factor factor
-    (13) expression -> . ISEQ factor factor
-    (14) expression -> . AND factor factor
-    (15) expression -> . OR factor factor
-    (16) expression -> . ABS factor
-    (17) expression -> . ROUND factor
-    (18) expression -> . ISNUMBER factor
-    (19) expression -> . NOT factor
-    (20) expression -> . DEF ID expression
-    (21) expression -> . IF ( expression ) ( expression ) ( expression )
-    (22) expression -> . LIST ( list_prod )
-    (23) expression -> . DEFUN ( name ) ( variables ) ( fun_body )
-    (24) expression -> . ID ( list_prod )
-    (28) expression -> . factor
-    (29) expression -> . MIN listy
-    (30) expression -> . MAX listy
-    (31) expression -> . CAR listy
-    (32) expression -> . CDR listy
-    (33) expression -> . LEN listy
-    (34) expression -> . APPEND listy listy
+    (5) expression -> / factor . factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -1196,75 +857,17 @@ state 46
     (43) factor -> . - FLOAT
     (44) factor -> . ( expression )
 
-    +               shift and go to state 5
-    -               shift and go to state 7
-    *               shift and go to state 8
-    /               shift and go to state 9
-    POW             shift and go to state 10
-    <               shift and go to state 11
-    >               shift and go to state 12
-    EQ              shift and go to state 13
-    NEQ             shift and go to state 14
-    LE              shift and go to state 15
-    GE              shift and go to state 16
-    ISEQ            shift and go to state 17
-    AND             shift and go to state 18
-    OR              shift and go to state 19
-    ABS             shift and go to state 20
-    ROUND           shift and go to state 21
-    ISNUMBER        shift and go to state 22
-    NOT             shift and go to state 23
-    DEF             shift and go to state 24
-    IF              shift and go to state 26
-    LIST            shift and go to state 27
-    DEFUN           shift and go to state 28
-    ID              shift and go to state 25
-    MIN             shift and go to state 29
-    MAX             shift and go to state 30
-    CAR             shift and go to state 31
-    CDR             shift and go to state 32
-    LEN             shift and go to state 33
-    APPEND          shift and go to state 34
+    ID              shift and go to state 40
     INTEGER         shift and go to state 35
     FLOAT           shift and go to state 36
+    -               shift and go to state 41
     (               shift and go to state 3
 
-    factor                         shift and go to state 6
-    expression                     shift and go to state 80
+    factor                         shift and go to state 80
 
 state 47
 
-    (6) expression -> POW factor . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
-    (7) expression -> . < factor factor
-    (8) expression -> . > factor factor
-    (9) expression -> . EQ factor factor
-    (10) expression -> . NEQ factor factor
-    (11) expression -> . LE factor factor
-    (12) expression -> . GE factor factor
-    (13) expression -> . ISEQ factor factor
-    (14) expression -> . AND factor factor
-    (15) expression -> . OR factor factor
-    (16) expression -> . ABS factor
-    (17) expression -> . ROUND factor
-    (18) expression -> . ISNUMBER factor
-    (19) expression -> . NOT factor
-    (20) expression -> . DEF ID expression
-    (21) expression -> . IF ( expression ) ( expression ) ( expression )
-    (22) expression -> . LIST ( list_prod )
-    (23) expression -> . DEFUN ( name ) ( variables ) ( fun_body )
-    (24) expression -> . ID ( list_prod )
-    (28) expression -> . factor
-    (29) expression -> . MIN listy
-    (30) expression -> . MAX listy
-    (31) expression -> . CAR listy
-    (32) expression -> . CDR listy
-    (33) expression -> . LEN listy
-    (34) expression -> . APPEND listy listy
+    (6) expression -> POW factor . factor
     (39) factor -> . ID
     (40) factor -> . INTEGER
     (41) factor -> . FLOAT
@@ -1272,41 +875,13 @@ state 47
     (43) factor -> . - FLOAT
     (44) factor -> . ( expression )
 
-    +               shift and go to state 5
-    -               shift and go to state 7
-    *               shift and go to state 8
-    /               shift and go to state 9
-    POW             shift and go to state 10
-    <               shift and go to state 11
-    >               shift and go to state 12
-    EQ              shift and go to state 13
-    NEQ             shift and go to state 14
-    LE              shift and go to state 15
-    GE              shift and go to state 16
-    ISEQ            shift and go to state 17
-    AND             shift and go to state 18
-    OR              shift and go to state 19
-    ABS             shift and go to state 20
-    ROUND           shift and go to state 21
-    ISNUMBER        shift and go to state 22
-    NOT             shift and go to state 23
-    DEF             shift and go to state 24
-    IF              shift and go to state 26
-    LIST            shift and go to state 27
-    DEFUN           shift and go to state 28
-    ID              shift and go to state 25
-    MIN             shift and go to state 29
-    MAX             shift and go to state 30
-    CAR             shift and go to state 31
-    CDR             shift and go to state 32
-    LEN             shift and go to state 33
-    APPEND          shift and go to state 34
+    ID              shift and go to state 40
     INTEGER         shift and go to state 35
     FLOAT           shift and go to state 36
+    -               shift and go to state 41
     (               shift and go to state 3
 
-    factor                         shift and go to state 6
-    expression                     shift and go to state 81
+    factor                         shift and go to state 81
 
 state 48
 
@@ -1501,11 +1076,11 @@ state 60
 state 61
 
     (20) expression -> DEF ID . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
@@ -1598,11 +1173,11 @@ state 62
 state 63
 
     (21) expression -> IF ( . expression ) ( expression ) ( expression )
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
@@ -1768,82 +1343,28 @@ state 74
     (44) factor -> ( expression ) .
 
     )               reduce using rule 44 (factor -> ( expression ) .)
-    +               reduce using rule 44 (factor -> ( expression ) .)
-    -               reduce using rule 44 (factor -> ( expression ) .)
-    *               reduce using rule 44 (factor -> ( expression ) .)
-    /               reduce using rule 44 (factor -> ( expression ) .)
-    POW             reduce using rule 44 (factor -> ( expression ) .)
-    <               reduce using rule 44 (factor -> ( expression ) .)
-    >               reduce using rule 44 (factor -> ( expression ) .)
-    EQ              reduce using rule 44 (factor -> ( expression ) .)
-    NEQ             reduce using rule 44 (factor -> ( expression ) .)
-    LE              reduce using rule 44 (factor -> ( expression ) .)
-    GE              reduce using rule 44 (factor -> ( expression ) .)
-    ISEQ            reduce using rule 44 (factor -> ( expression ) .)
-    AND             reduce using rule 44 (factor -> ( expression ) .)
-    OR              reduce using rule 44 (factor -> ( expression ) .)
-    ABS             reduce using rule 44 (factor -> ( expression ) .)
-    ROUND           reduce using rule 44 (factor -> ( expression ) .)
-    ISNUMBER        reduce using rule 44 (factor -> ( expression ) .)
-    NOT             reduce using rule 44 (factor -> ( expression ) .)
-    DEF             reduce using rule 44 (factor -> ( expression ) .)
-    IF              reduce using rule 44 (factor -> ( expression ) .)
-    LIST            reduce using rule 44 (factor -> ( expression ) .)
-    DEFUN           reduce using rule 44 (factor -> ( expression ) .)
     ID              reduce using rule 44 (factor -> ( expression ) .)
-    MIN             reduce using rule 44 (factor -> ( expression ) .)
-    MAX             reduce using rule 44 (factor -> ( expression ) .)
-    CAR             reduce using rule 44 (factor -> ( expression ) .)
-    CDR             reduce using rule 44 (factor -> ( expression ) .)
-    LEN             reduce using rule 44 (factor -> ( expression ) .)
-    APPEND          reduce using rule 44 (factor -> ( expression ) .)
     INTEGER         reduce using rule 44 (factor -> ( expression ) .)
     FLOAT           reduce using rule 44 (factor -> ( expression ) .)
+    -               reduce using rule 44 (factor -> ( expression ) .)
     (               reduce using rule 44 (factor -> ( expression ) .)
 
 
 state 75
 
-    (2) expression -> + factor expression .
+    (2) expression -> + factor factor .
 
-    )               reduce using rule 2 (expression -> + factor expression .)
+    )               reduce using rule 2 (expression -> + factor factor .)
 
 
 state 76
 
     (42) factor -> - INTEGER .
 
-    +               reduce using rule 42 (factor -> - INTEGER .)
-    -               reduce using rule 42 (factor -> - INTEGER .)
-    *               reduce using rule 42 (factor -> - INTEGER .)
-    /               reduce using rule 42 (factor -> - INTEGER .)
-    POW             reduce using rule 42 (factor -> - INTEGER .)
-    <               reduce using rule 42 (factor -> - INTEGER .)
-    >               reduce using rule 42 (factor -> - INTEGER .)
-    EQ              reduce using rule 42 (factor -> - INTEGER .)
-    NEQ             reduce using rule 42 (factor -> - INTEGER .)
-    LE              reduce using rule 42 (factor -> - INTEGER .)
-    GE              reduce using rule 42 (factor -> - INTEGER .)
-    ISEQ            reduce using rule 42 (factor -> - INTEGER .)
-    AND             reduce using rule 42 (factor -> - INTEGER .)
-    OR              reduce using rule 42 (factor -> - INTEGER .)
-    ABS             reduce using rule 42 (factor -> - INTEGER .)
-    ROUND           reduce using rule 42 (factor -> - INTEGER .)
-    ISNUMBER        reduce using rule 42 (factor -> - INTEGER .)
-    NOT             reduce using rule 42 (factor -> - INTEGER .)
-    DEF             reduce using rule 42 (factor -> - INTEGER .)
-    IF              reduce using rule 42 (factor -> - INTEGER .)
-    LIST            reduce using rule 42 (factor -> - INTEGER .)
-    DEFUN           reduce using rule 42 (factor -> - INTEGER .)
     ID              reduce using rule 42 (factor -> - INTEGER .)
-    MIN             reduce using rule 42 (factor -> - INTEGER .)
-    MAX             reduce using rule 42 (factor -> - INTEGER .)
-    CAR             reduce using rule 42 (factor -> - INTEGER .)
-    CDR             reduce using rule 42 (factor -> - INTEGER .)
-    LEN             reduce using rule 42 (factor -> - INTEGER .)
-    APPEND          reduce using rule 42 (factor -> - INTEGER .)
     INTEGER         reduce using rule 42 (factor -> - INTEGER .)
     FLOAT           reduce using rule 42 (factor -> - INTEGER .)
+    -               reduce using rule 42 (factor -> - INTEGER .)
     (               reduce using rule 42 (factor -> - INTEGER .)
     )               reduce using rule 42 (factor -> - INTEGER .)
 
@@ -1852,67 +1373,40 @@ state 77
 
     (43) factor -> - FLOAT .
 
-    +               reduce using rule 43 (factor -> - FLOAT .)
-    -               reduce using rule 43 (factor -> - FLOAT .)
-    *               reduce using rule 43 (factor -> - FLOAT .)
-    /               reduce using rule 43 (factor -> - FLOAT .)
-    POW             reduce using rule 43 (factor -> - FLOAT .)
-    <               reduce using rule 43 (factor -> - FLOAT .)
-    >               reduce using rule 43 (factor -> - FLOAT .)
-    EQ              reduce using rule 43 (factor -> - FLOAT .)
-    NEQ             reduce using rule 43 (factor -> - FLOAT .)
-    LE              reduce using rule 43 (factor -> - FLOAT .)
-    GE              reduce using rule 43 (factor -> - FLOAT .)
-    ISEQ            reduce using rule 43 (factor -> - FLOAT .)
-    AND             reduce using rule 43 (factor -> - FLOAT .)
-    OR              reduce using rule 43 (factor -> - FLOAT .)
-    ABS             reduce using rule 43 (factor -> - FLOAT .)
-    ROUND           reduce using rule 43 (factor -> - FLOAT .)
-    ISNUMBER        reduce using rule 43 (factor -> - FLOAT .)
-    NOT             reduce using rule 43 (factor -> - FLOAT .)
-    DEF             reduce using rule 43 (factor -> - FLOAT .)
-    IF              reduce using rule 43 (factor -> - FLOAT .)
-    LIST            reduce using rule 43 (factor -> - FLOAT .)
-    DEFUN           reduce using rule 43 (factor -> - FLOAT .)
     ID              reduce using rule 43 (factor -> - FLOAT .)
-    MIN             reduce using rule 43 (factor -> - FLOAT .)
-    MAX             reduce using rule 43 (factor -> - FLOAT .)
-    CAR             reduce using rule 43 (factor -> - FLOAT .)
-    CDR             reduce using rule 43 (factor -> - FLOAT .)
-    LEN             reduce using rule 43 (factor -> - FLOAT .)
-    APPEND          reduce using rule 43 (factor -> - FLOAT .)
     INTEGER         reduce using rule 43 (factor -> - FLOAT .)
     FLOAT           reduce using rule 43 (factor -> - FLOAT .)
+    -               reduce using rule 43 (factor -> - FLOAT .)
     (               reduce using rule 43 (factor -> - FLOAT .)
     )               reduce using rule 43 (factor -> - FLOAT .)
 
 
 state 78
 
-    (3) expression -> - factor expression .
+    (3) expression -> - factor factor .
 
-    )               reduce using rule 3 (expression -> - factor expression .)
+    )               reduce using rule 3 (expression -> - factor factor .)
 
 
 state 79
 
-    (4) expression -> * factor expression .
+    (4) expression -> * factor factor .
 
-    )               reduce using rule 4 (expression -> * factor expression .)
+    )               reduce using rule 4 (expression -> * factor factor .)
 
 
 state 80
 
-    (5) expression -> / factor expression .
+    (5) expression -> / factor factor .
 
-    )               reduce using rule 5 (expression -> / factor expression .)
+    )               reduce using rule 5 (expression -> / factor factor .)
 
 
 state 81
 
-    (6) expression -> POW factor expression .
+    (6) expression -> POW factor factor .
 
-    )               reduce using rule 6 (expression -> POW factor expression .)
+    )               reduce using rule 6 (expression -> POW factor factor .)
 
 
 state 82
@@ -2149,11 +1643,11 @@ state 105
 state 106
 
     (21) expression -> IF ( expression ) ( . expression ) ( expression )
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
@@ -2305,11 +1799,11 @@ state 113
 state 114
 
     (21) expression -> IF ( expression ) ( expression ) ( . expression )
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
@@ -2382,11 +1876,11 @@ state 115
 
     (23) expression -> DEFUN ( name ) ( variables ) ( . fun_body )
     (27) fun_body -> . expression
-    (2) expression -> . + factor expression
-    (3) expression -> . - factor expression
-    (4) expression -> . * factor expression
-    (5) expression -> . / factor expression
-    (6) expression -> . POW factor expression
+    (2) expression -> . + factor factor
+    (3) expression -> . - factor factor
+    (4) expression -> . * factor factor
+    (5) expression -> . / factor factor
+    (6) expression -> . POW factor factor
     (7) expression -> . < factor factor
     (8) expression -> . > factor factor
     (9) expression -> . EQ factor factor
