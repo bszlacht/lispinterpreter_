@@ -1,0 +1,23 @@
+LISP: (define x 2)
+LISP: (x)
+2
+LISP: (defun (fun) (a b) (> a b))
+LISP: (fun (1 2))
+0
+LISP: (fun (2 1))
+1
+LISP: (list (1 2 3))
+[1, 2, 3]
+LISP: (append list (1 2) list ( 3 4))
+[1, 2, 3, 4]
+LISP: (defun (comp) (a b) (if (> a b) (a) (b)))
+LISP: (comp (2 1))
+2
+LISP: (comp (1 2))
+2
+LISP: (define a list ( 1 2))
+LISP: (a)
+[1, 2]
+LISP: (append a list ( 3 4))
+[1, 2, 3, 4]
+LISP:

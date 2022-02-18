@@ -11,7 +11,8 @@ class Scanner(object):
     def token(self):
         return self.lexer.token()
 
-    literals = "()=+-*/<>,"
+
+    literals = "()=+-*/<>"
     reserved = {
         'if': 'IF',
         'define': 'DEF',
