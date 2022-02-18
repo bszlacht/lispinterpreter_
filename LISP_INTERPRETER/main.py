@@ -1,13 +1,15 @@
-from fun import Scanner, EnvironmentBuilder, Parser, Env
-
-#   list dialect scheme => https://en.wikipedia.org/wiki/Scheme_(programming_language)
+from Parser import Parser
+import ply.yacc as yacc
+from Interpreter import Interpreter
 
 if __name__ == '__main__':
-    env = EnvironmentBuilder.build_env()
-    local_env = Env()
+    # todo kolumn error
+    parser = Parser()
+    pars = yacc.yacc(module=parser)
+    interpret = Interpreter()
     while 1:
-        _input = input("LISP>")
-        _input = Scanner.scan(_input)
-        result = Parser.parse(_input, env)
-        if result is not None:
-            print(result)
+        data = input("LISP: ")
+        ast = pars.parse(data, lexer=parser.scanner)
+        res = interpret.interpret(ast)
+        if res is not None:
+            print(str(res))
